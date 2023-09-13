@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+         #
+#    By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/09 15:26:01 by mabaron-          #+#    #+#              #
-#    Updated: 2023/09/10 16:53:51 by mabaron-         ###   ########.fr        #
+#    Updated: 2023/09/12 17:43:24 by margueriteb      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRCS = main.c parsing.c
+SRCS = main.c parsing.c parsing_utils.c
 
 OBJS =	${SRCS:.c=.o}
 

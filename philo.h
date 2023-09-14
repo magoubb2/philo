@@ -6,7 +6,7 @@
 /*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/13 16:00:08 by margueriteb      ###   ########.fr       */
+/*   Updated: 2023/09/13 18:59:05 by margueriteb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ typedef struct s_data
     int 	time_to_sleep;
 	int		nb_philo;
 	int		max_eat; //for 5em arg
-	t_philo		philo[200];
-	//pthread_t	philo[1000];
+	t_philo			philo[200]; // philo data
+	pthread_t		philo_t[200]; // philo threads
+	pthread_mutex_t	fork[200]; // forks
 }   t_data;
 
-int	parse(t_data *data, int argc, char **argv);
-int ft_isdigit(char *str);
-int	ft_atoi(const char *str);
+int	parse_arg(char **argv, t_data *data);
 
 
 #endif

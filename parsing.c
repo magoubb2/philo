@@ -6,19 +6,65 @@
 /*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:53:38 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/13 16:04:29 by margueriteb      ###   ########.fr       */
+/*   Updated: 2023/09/13 18:58:14 by margueriteb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// Check for only digits.
+static int ft_isdigit(char *str)
+{
+    int i;
 
-// Check for number of philo.
+    i = 0;
+    while (str[i])
+    {
+        if (str[i] < '0' || str[i] > '9')
+            return (0);
+        i++;
+    }
+    return (-1);
+}
 
-// Check for time.
+static int	ft_space(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (1);
+	else
+	{
+		return (0);
+	}
+}
 
-// Check for max_eat
+static int	ft_atoi(const char *str)
+{
+	int	i;
+	int	sign;
+	int	result;
+
+	i = 0;
+	sign = 1;
+	result = 0;
+	if (str == NULL)
+		return (0);
+	while (ft_space(str[i]) == 1)
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	{
+		result *= 10;
+		result += str[i] - '0';
+		i++;
+	}
+	return (result * sign);
+}
 
 static int check_int(char **argv)
 {
@@ -34,29 +80,25 @@ static int check_int(char **argv)
     return (0);
 }
 
-static int	parse_arg(char **argv, t_data *data)
+int	parse_arg(char **argv, t_data *data)
 {
-	// ./philo nb_philo die eat sleep	
-    // check func
-	// assign t_data variables
     if ((check_int(argv) == -1))
-        printf("Argument digit error\n");
+    {
+        printf("Argument error\n");
+        return (-1);
+    }
+    data->nb_philo = ft_atoi(argv[1]);
     data->time_to_die = ft_atoi(argv[2]);
     data->time_to_eat = ft_atoi(argv[3]);
     data->time_to_sleep = ft_atoi(argv[4]);
-    data->nb_philo = ft_atoi(argv[1]);
     if (data->nb_philo > 200 || data->nb_philo == 0)
     {
-        printf("Error number of philosopher\n");
+        printf("Number of philosopher error\n");
         return (-1);
     }
-    return (0);
-}
-
-int	parse(t_data *data, int argc, char **argv)
-{
-    (void)argc;
-	if (parse_arg(argv, data) == -1)
-		return (-1);
+    if (argv[5])
+        data->max_eat = ft_atoi(argv[5]);
+    else
+        data->max_eat = -1;
     return (0);
 }

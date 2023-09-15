@@ -6,7 +6,7 @@
 /*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:53:38 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/13 18:58:14 by margueriteb      ###   ########.fr       */
+/*   Updated: 2023/09/15 19:21:00 by margueriteb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_space(char c)
 	}
 }
 
-static int	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;

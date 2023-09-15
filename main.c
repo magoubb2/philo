@@ -6,7 +6,7 @@
 /*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/13 18:59:37 by margueriteb      ###   ########.fr       */
+/*   Updated: 2023/09/15 19:28:40 by margueriteb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 	// parse
 	if (parse_arg(argv, &data) == -1)
 		return (-1);
-	// init forks init_forks();
+	init_forks(data.fork, ft_atoi(argv[1]));
 	// create threads (philos)
 	// join threads
 

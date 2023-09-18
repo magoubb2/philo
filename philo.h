@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
+/*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/15 19:24:50 by margueriteb      ###   ########.fr       */
+/*   Updated: 2023/09/18 12:45:06 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_atoi(const char *str);
 // This function is intended for initializing mutexes (representing forks) 
 // for a certain number of philosophers. It takes a pointer to an array of 
 //mutexes fork and the number of philosophers nb_philo as parameters.
-void	init_forks(t_data *data, int nb_philo);
+void init_forks(t_data *data, int nb_philo);
 
 
 

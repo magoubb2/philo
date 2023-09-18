@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
+/*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 16:28:14 by margueriteb       #+#    #+#             */
-/*   Updated: 2023/09/15 19:27:44 by margueriteb      ###   ########.fr       */
+/*   Updated: 2023/09/18 12:44:00 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 void init_forks(t_data *data, int nb_philo)
 {
     int i;
-    t_data data;
-
+	
     i = 0;
     while (i < nb_philo)
     {

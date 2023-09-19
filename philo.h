@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/18 15:19:00 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:23:47 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ typedef struct s_data
 }   t_data;
 
 // parsing
-int		ft_isdigit(char *str);
 int		parse_arg(char **argv, t_data *data);
-// atoi
+// parsing_utils
+int		ft_isdigit(char *str);
 int		ft_atoi(const char *str);
+// routine
 void	create_philos_t(t_data *data);
 
 

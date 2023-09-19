@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/18 15:22:40 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:21:50 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	philos_routine(t_philo *philo)
 	//eat
 	//sleep
 	//think
+	//if (dead == 1)
+	//	break ;
 	printf("test philo%i\n", philo->id);
 }
 
+// create the philos threads
 void create_philos_t(t_data *data)
 {
 	int i;

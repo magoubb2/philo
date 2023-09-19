@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:53:38 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/18 15:07:28 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:20:47 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ static int check_int(char **argv)
     return (0);
 }
 
+// Responsible for initializing the basic data for each
+// philosopher, including their identifier, the forks to 
+// their left and right, as well as meal-related data.
 static void	init_philos(t_data *data)
 {
 	int i;

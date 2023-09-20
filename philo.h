@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/19 17:23:47 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:09:01 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_philo
     int r_fork;
     int last_meal_ms;
     int nb_of_meal;
+	struct s_data *data;
 }   t_philo;
 
 typedef struct s_data
@@ -33,7 +34,7 @@ typedef struct s_data
 	int				nb_philo;
 	int				max_eat; //for 5em arg
 	t_philo			philo[200]; // philo data
-	pthread_t		philo_t[200]; // philo threads
+	pthread_t		philo_tid[200]; // philo threads
 	pthread_mutex_t	fork[200]; // forks (tableau de mutex) represent les fourchettes des philosophes
 }   t_data;
 

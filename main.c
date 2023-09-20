@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/18 15:20:59 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:09:46 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	init_forks(t_data *data)
 int main(int argc, char **argv)
 {
 	t_data data;
+	int i;
 
 	if (argc < 5 || argc > 6)
 		return (printf("Argument error\n"), -1);
@@ -41,6 +42,8 @@ int main(int argc, char **argv)
 	// create threads (philos)
 	create_philos_t(&data);
 	// join threads
-
+	i = 0;
+	while (i < data.nb_philo)
+		pthread_join(data.philo_tid[i++], NULL);
 	return (0);
 }

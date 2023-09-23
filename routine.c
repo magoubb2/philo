@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/23 14:29:41 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/23 15:37:48 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ static void	philo_eat(t_philo *philo)
 	pthread_mutex_unlock(&philo->data->fork[philo->r_fork]);
 }
 
+static void philo_sleep(t_philo *philo)
+{
+	print_message("philo, is sleeping", philo, philo->id);
+}
+
 void	*philos_routine(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
@@ -39,6 +44,7 @@ void	*philos_routine(t_philo *philo)
 		//eat
 		philo_eat(philo);
 		//sleep
+		philo_sleep(philo);
 		//think
 		//if (philo = dead)
 	}

@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/23 13:35:13 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/23 15:18:41 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ size_t	get_time(void)
 void print_message(char *s, t_philo *philo, int id)
 {
 	size_t time;
-	
-	time = get_time() - philo->data->start_timer;
-	// printf("time : %lu\n", time);
-	// printf("start_timer: %lu\n", philo->data->start_timer);
 
+	pthread_mutex_lock(&philo->data->write_lock);
+	time = get_time() - philo->data->start_timer;
 	printf("%lu %i %s\n", time, id + 1, s);
-	
+	pthread_mutex_unlock(&philo->data->write_lock);
 	usleep(2000);
 }

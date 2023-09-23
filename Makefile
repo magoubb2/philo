@@ -6,7 +6,7 @@
 #    By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/09 15:26:01 by mabaron-          #+#    #+#              #
-#    Updated: 2023/09/23 13:42:09 by mabaron-         ###   ########.fr        #
+#    Updated: 2023/09/23 15:14:38 by mabaron-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS = main.c parsing.c parsing_utils.c routine.c utils.c
 OBJS =	${SRCS:.c=.o}
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -g
 
 RM = rm -rf
 

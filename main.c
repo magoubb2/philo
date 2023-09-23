@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/19 20:09:46 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/23 13:10:23 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main(int argc, char **argv)
 	if (argc < 5 || argc > 6)
 		return (printf("Argument error\n"), -1);
 	// parse
+	data.start_timer = get_time();
 	if (parse_arg(argv, &data) == -1)
 		return (-1);
 	init_forks(&data);

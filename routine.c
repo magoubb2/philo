@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/20 17:04:50 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/23 13:39:10 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static void	philo_eat(t_philo *philo)
 {
 	// take forks
 	pthread_mutex_lock(&philo->data->fork[philo->l_fork]);
-	printf("philo%i, takes left fork%i\n", philo->id, philo->l_fork);
+	print_message("philo, takes right fork", philo, philo->id);
 	pthread_mutex_lock(&philo->data->fork[philo->r_fork]);
-	printf("philo%i, takes right fork%i\n", philo->id, philo->r_fork);
+	print_message("philo, takes left fork", philo, philo->id);
 	// eat for time_to_eat and print
-	printf("philo%i is eating\n", philo->id);
+	print_message("philo is eating", philo, philo->id);
 	philo->nb_of_meal++;
 	// unlock forks
 	pthread_mutex_unlock(&philo->data->fork[philo->l_fork]);

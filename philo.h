@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/20 16:27:35 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/23 13:09:49 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <stdio.h>
+#include <sys/time.h>
 
 typedef struct s_philo
 {
@@ -32,6 +33,7 @@ typedef struct s_data
 	int				time_to_eat;
     int				time_to_sleep;
 	int				nb_philo;
+	size_t			start_timer;
 	int				max_eat; //for 5em arg
 	t_philo			philo[200]; // philo data
 	pthread_t		philo_tid[200]; // philo threads
@@ -46,6 +48,9 @@ int		ft_isdigit(char *str);
 int		ft_atoi(const char *str);
 // routine
 void	create_philos_t(t_data *data);
+// utils
+size_t	get_time(void);
+void	print_message(char *s, t_philo *philo, int id);
 
 
 

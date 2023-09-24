@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/24 14:12:04 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:21:02 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void print_message(char *s, t_philo *philo, int id)
 
 	pthread_mutex_lock(&philo->data->write_lock);
 	time = get_time() - philo->data->start_timer;
-	printf("%lu %i %s\n", time, id + 1, s);
+	printf("%lu Philo %i %s\n", time, id + 1, s);
 	pthread_mutex_unlock(&philo->data->write_lock);
 }
 

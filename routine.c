@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/24 14:12:16 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:22:26 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ static void	philo_eat(t_philo *philo)
 {
 	// take forks
 	pthread_mutex_lock(&philo->data->fork[philo->l_fork]);
-	print_message("philo, takes right fork", philo, philo->id);
+	print_message("takes right fork", philo, philo->id);
 	pthread_mutex_lock(&philo->data->fork[philo->r_fork]);
-	print_message("philo, takes left fork", philo, philo->id);
+	print_message("takes left fork", philo, philo->id);
 	// eat for time_to_eat and print
-	print_message("philo is eating", philo, philo->id);
+	print_message("is eating", philo, philo->id);
 	philo->nb_of_meal++;
 	// unlock forks
 	pthread_mutex_unlock(&philo->data->fork[philo->l_fork]);
@@ -31,14 +31,14 @@ static void	philo_eat(t_philo *philo)
 //
 static void philo_sleep(t_philo *philo)
 {
-	print_message("philo, is sleeping", philo, philo->id);
+	print_message("is sleeping", philo, philo->id);
 	ft_usleep(philo->data->time_to_sleep);
 }
 
 //
 static void	philo_think(t_philo *philo)
 {
-	print_message("philo is thinking", philo, philo->id);
+	print_message("is thinking", philo, philo->id);
 }
 
 void	*philos_routine(t_philo *philo)

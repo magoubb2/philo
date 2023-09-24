@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/23 15:37:48 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/24 14:01:32 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ static void	philo_eat(t_philo *philo)
 static void philo_sleep(t_philo *philo)
 {
 	print_message("philo, is sleeping", philo, philo->id);
+	ft_usleep(philo->data->time_to_sleep);
+}
+
+static void	philo_think(t_philo *philo)
+{
+	print_message("philo is thinking", philo, philo->id);
 }
 
 void	*philos_routine(t_philo *philo)
@@ -46,6 +52,7 @@ void	*philos_routine(t_philo *philo)
 		//sleep
 		philo_sleep(philo);
 		//think
+		philo_think(philo);
 		//if (philo = dead)
 	}
 	//if (dead == 1)

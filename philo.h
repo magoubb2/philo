@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/23 13:09:49 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/24 14:09:47 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	create_philos_t(t_data *data);
 // utils
 size_t	get_time(void);
 void	print_message(char *s, t_philo *philo, int id);
-
-
+int		ft_usleep(size_t ms);
 
 #endif

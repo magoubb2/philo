@@ -6,12 +6,13 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/24 13:59:05 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/24 14:12:04 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+//
 size_t	get_time(void)
 {
 	struct timeval time;
@@ -20,6 +21,7 @@ size_t	get_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
+//
 void print_message(char *s, t_philo *philo, int id)
 {
 	size_t time;
@@ -30,6 +32,7 @@ void print_message(char *s, t_philo *philo, int id)
 	pthread_mutex_unlock(&philo->data->write_lock);
 }
 
+//
 int	ft_usleep(size_t ms)
 {
 	size_t start;

@@ -6,12 +6,13 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/24 14:01:32 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/24 14:12:16 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+//
 static void	philo_eat(t_philo *philo)
 {
 	// take forks
@@ -27,12 +28,14 @@ static void	philo_eat(t_philo *philo)
 	pthread_mutex_unlock(&philo->data->fork[philo->r_fork]);
 }
 
+//
 static void philo_sleep(t_philo *philo)
 {
 	print_message("philo, is sleeping", philo, philo->id);
 	ft_usleep(philo->data->time_to_sleep);
 }
 
+//
 static void	philo_think(t_philo *philo)
 {
 	print_message("philo is thinking", philo, philo->id);

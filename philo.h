@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/24 14:11:46 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:03:38 by margueriteb      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,20 @@ typedef struct s_data
 }   t_data;
 
 // parsing
+
 int		parse_arg(char **argv, t_data *data);
+
 // parsing_utils
+
 int		ft_isdigit(char *str);
 int		ft_atoi(const char *str);
+
 // routine
+
 void	create_philos_t(t_data *data);
-// utilss
+
+// utils
+
 size_t	get_time(void);
 void	print_message(char *s, t_philo *philo, int id);
 int		ft_usleep(size_t ms);

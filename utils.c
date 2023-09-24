@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
+/*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/09/24 15:21:02 by mabaron-         ###   ########.fr       */
-=======
-/*   Updated: 2023/09/24 15:03:05 by margueriteb      ###   ########.fr       */
->>>>>>> d481eafc0549751eef1bd7471383316cd37ab89f
+/*   Updated: 2023/09/24 15:27:07 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "philo.h"
 

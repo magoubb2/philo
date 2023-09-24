@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
+/*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/09/24 15:22:26 by mabaron-         ###   ########.fr       */
-=======
-/*   Updated: 2023/09/24 14:58:07 by margueriteb      ###   ########.fr       */
->>>>>>> d481eafc0549751eef1bd7471383316cd37ab89f
+/*   Updated: 2023/09/24 15:27:15 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "philo.h"
 
@@ -22,15 +19,12 @@ static void	philo_eat(t_philo *philo)
 {
 	// take forks
 	pthread_mutex_lock(&philo->data->fork[philo->l_fork]);
-<<<<<<< HEAD
 	print_message("takes right fork", philo, philo->id);
 	pthread_mutex_lock(&philo->data->fork[philo->r_fork]);
 	print_message("takes left fork", philo, philo->id);
-=======
 	print_message("philo, takes left fork", philo, philo->id);
 	pthread_mutex_lock(&philo->data->fork[philo->r_fork]);
-	print_message("philo, takes right fork", philo, philo->id);
->>>>>>> d481eafc0549751eef1bd7471383316cd37ab89f
+	print_message("takes right fork", philo, philo->id);
 	// eat for time_to_eat and print
 	print_message("is eating", philo, philo->id);
 	philo->nb_of_meal++;

@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:53:38 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/20 13:13:23 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:41:34 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	init_philos(t_data *data)
 	{
 		data->philo[i].id = i;
 		data->philo[i].l_fork = i;
-		data->philo[i].r_fork = i + 1;
+		data->philo[i].r_fork = (i + 1) % data->nb_philo;
 		data->philo[i].last_meal_ms = 0;
 		data->philo[i].nb_of_meal = 0;
 		data->philo[i].data = data;
@@ -58,6 +58,8 @@ int	parse_arg(char **argv, t_data *data)
     data->time_to_die = ft_atoi(argv[2]);
     data->time_to_eat = ft_atoi(argv[3]);
     data->time_to_sleep = ft_atoi(argv[4]);
+	data->dead = 0;
+	pthread_mutex_init(&data->write_lock, NULL);
     if (data->nb_philo > 200 || data->nb_philo == 0)
     {
         printf("Number of philosopher error\n");

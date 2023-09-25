@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: margueritebaronbeliveau <margueritebaro    +#+  +:+       +#+        */
+/*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/24 15:03:38 by margueriteb      ###   ########.fr       */
+/*   Updated: 2023/09/25 15:55:43 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_philo
 	int		id;
 	int		l_fork;
     int		r_fork;
-    int		last_meal_ms;
+    size_t	last_meal_ms;
     int		nb_of_meal;
 	struct	s_data *data;
 }   t_philo;
@@ -33,6 +33,7 @@ typedef struct s_data
 	int				time_to_eat;
     int				time_to_sleep;
 	int				nb_philo;
+	int				dead;
 	size_t			start_timer;
 	int				max_eat; //for 5em arg
 	t_philo			philo[200]; // philo data
@@ -54,10 +55,11 @@ int		ft_atoi(const char *str);
 
 void	create_philos_t(t_data *data);
 
-// utils
+// routine_utils
 
 size_t	get_time(void);
-void	print_message(char *s, t_philo *philo, int id);
+void	print_message(char *s, t_philo *philo, int id, int dead);
 int		ft_usleep(size_t ms);
+int		is_dead(t_philo *philo);
 
 #endif

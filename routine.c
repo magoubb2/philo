@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/25 16:04:11 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:46:30 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static void	philo_think(t_philo *philo)
 	print_message("is thinking", philo, philo->id, 0);
 }
 
-// Philo's routine
+// Philo's routine, if there is a 5th argument, once the nb_of_meals is
+// == to the number of max_eat, the program breaks and stops.
 void	*philos_routine(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
@@ -59,17 +60,11 @@ void	*philos_routine(t_philo *philo)
 		//eat
 		philo_eat(philo);
 		if (is_dead(philo))
-		{
-			print_message("is dead", philo, philo->id, 1);
 			return (NULL);
-		}
 		//sleep
 		philo_sleep(philo);
 		if (is_dead(philo))
-		{
-			print_message("is dead", philo, philo->id, 1);
 			return (NULL);
-		}
 		//think
 		philo_think(philo);
 		if (is_dead(philo))
@@ -102,4 +97,4 @@ void create_philos_t(t_data *data)
 		pthread_create(&data->philo_tid[i], NULL, (void *)&philos_routine, &data->philo[i]);
 		i++;
 	}
-}
+ }

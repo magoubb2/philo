@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/25 12:07:06 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:27:09 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int main(int argc, char **argv)
 	init_forks(&data);
 	// create threads (philos)
 	create_philos_t(&data);
+	create_monitor_t(&data);
 	// join threads
 	i = 0;
 	while (i < data.nb_philo)

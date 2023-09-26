@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:53:38 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/25 15:41:34 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:37:49 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	init_philos(t_data *data)
 		data->philo[i].last_meal_ms = 0;
 		data->philo[i].nb_of_meal = 0;
 		data->philo[i].data = data;
+		pthread_mutex_init(&data->philo[i].dead_lock, NULL);
 		i++;
 	}
 }

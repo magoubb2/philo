@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/25 15:57:19 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:18:42 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,16 @@ size_t	get_time(void)
 
 // This function prints the messages we want to print and the current time -
 // start_timer.
-void print_message(char *s, t_philo *philo, int id, int dead)
+void print_message(char *s, t_philo *philo, int id)
 {
 	size_t time;
 
 	pthread_mutex_lock(&philo->data->write_lock);
-	if (!philo->data->dead)
+	if (!philo->data->game_over)
 	{
 		time = get_time() - philo->data->start_timer;
-		printf("%lu Philo %i %s\n", time, id + 1, s);
+		printf("%zu Philo %i %s\n", time, id + 1, s);
 	}
-	if (dead)
-		philo->data->dead = 1;
 	pthread_mutex_unlock(&philo->data->write_lock);
 }
 
@@ -46,17 +44,20 @@ int	ft_usleep(size_t ms)
 
 	start = get_time();
 	while ((get_time() - start) < ms)
-		usleep (25);
+		usleep (50);
 	return (0);
 }
 
 int	is_dead(t_philo *philo)
 {
 	size_t time_since_last_meal;
-
+	
+	pthread_mutex_lock(&philo->dead_lock);
 	time_since_last_meal = get_time() - philo->last_meal_ms;
 	// printf("ttd: %zu\n", philo->last_meal_ms);
 	// printf("ttd: %i\n", philo->data->time_to_die);
 	// printf("tslm: %zu\n", time_since_last_meal);
+	
+	pthread_mutex_unlock(&philo->dead_lock);
 	return ((size_t)philo->data->time_to_die < time_since_last_meal);
 }

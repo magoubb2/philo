@@ -6,13 +6,13 @@
 #    By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/09 15:26:01 by mabaron-          #+#    #+#              #
-#    Updated: 2023/09/25 12:06:06 by mabaron-         ###   ########.fr        #
+#    Updated: 2023/09/27 10:59:55 by mabaron-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRCS = main.c parsing.c parsing_utils.c routine.c routine_utils.c
+SRCS = main.c parsing.c parsing_utils.c routine.c routine_utils.c monitor.c
 
 OBJS =	${SRCS:.c=.o}
 

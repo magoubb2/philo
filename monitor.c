@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:10:03 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/26 14:45:31 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:34:36 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,24 @@
 
 void check_monitor(t_philo *philo)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < philo->data->nb_philo)
 	{
-		if (philo->dead)
+		if (is_dead(&philo[i]))
 		{
-			
-			philo->data->game_over = 1;
+			if (philo->nb_of_meal == philo->data->max_eat)
+			{
+				philo->data->dead = 1;
+				break ;
+			}
+			print_message("is dead", philo, philo->id);
+			philo->data->dead = 1;
+			return ;
 		}
+		else
+			return ;
 		i++; 
 	}
 }

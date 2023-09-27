@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/26 14:27:09 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/27 13:54:32 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,16 @@ int main(int argc, char **argv)
 	if (argc < 5 || argc > 6)
 		return (printf("Argument error\n"), -1);
 	// parse
-	data.start_timer = get_time();
 	if (parse_arg(argv, &data) == -1)
 		return (-1);
 	init_forks(&data);
 	// create threads (philos)
+	data.start_timer = get_time();
 	create_philos_t(&data);
-	create_monitor_t(&data);
+	while (data.dead == 0)
+	{
+		check_monitor(data.philo);
+	}
 	// join threads
 	i = 0;
 	while (i < data.nb_philo)

@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/29 16:09:11 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:13:14 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	*philos_routine(t_philo *philo)
 		if (philo->nb_of_meal == philo->data->max_eat)
 			break ;
 		//eat
-		if (philo->data->nb_philo == 1)
-			break ;
 		philo_eat(philo);
 		//sleep
 		philo_sleep(philo);

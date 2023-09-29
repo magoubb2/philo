@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/29 16:09:16 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:16:38 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ int main(int argc, char **argv)
 	// parse
 	if (parse_arg(argv, &data) == -1)
 		return (-1);
+	if (data.nb_philo == 1)
+	{
+		printf("0 Philo 1 takes left fork\n");
+		ft_usleep(data.time_to_die);
+		printf("%d Philo 1 is dead\n", data.time_to_die);
+		return (0);
+	}
 	init_forks(&data);
 	// create threads (philos)
 	data.start_timer = get_time();

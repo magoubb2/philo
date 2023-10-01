@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/01 12:46:31 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/01 14:51:42 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,31 @@
 //mutexes fork and the number of philosophers nb_philo as parameters.
 static void	init_forks(t_data *data)
 {
-    int i;
-	
-    i = 0;
-    while (i < data->nb_philo)
-    {
-        pthread_mutex_init(&data->fork[i], NULL);
-        i++;
-    }
+	int	i;
+
+	i = 0;
+	while (i < data->nb_philo)
+	{
+		pthread_mutex_init(&data->fork[i], NULL);
+		i++;
+	}
 }
 
-// ./philo nb_philo die eat sleep
-int main(int argc, char **argv)
+// 1. The first thing we do is check the numbers of arguments.
+// 2. Then we check the parsing.
+// 3. Check the condition for if there is only one philo.
+// 4. Init the forks.
+// 5. We start the timmer after we init the forks.
+// 6. We create the threads (philos).
+// 7. Then we check if there is a dead philo.
+// 8. Finally we join the threads.
+int	main(int argc, char **argv)
 {
-	t_data data;
-	int i;
+	t_data	data;
+	int		i;
 
 	if (argc < 5 || argc > 6)
 		return (printf("Argument error\n"), -1);
-	// parse
 	if (parse_arg(argv, &data) == -1)
 		return (-1);
 	if (data.nb_philo == 1)
@@ -47,13 +53,9 @@ int main(int argc, char **argv)
 	}
 	init_forks(&data);
 	data.start_timer = get_time();
-	// create threads (philos)
 	create_philos_t(&data);
 	while (data.dead == 0)
-	{
 		check_monitor(data.philo);
-	}
-	// join threads
 	i = 0;
 	while (i < data.nb_philo)
 		pthread_join(data.philo_tid[i++], NULL);

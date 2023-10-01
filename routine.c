@@ -6,10 +6,9 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/29 16:13:14 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/01 15:00:20 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "philo.h"
 
@@ -17,16 +16,13 @@
 // right fork and when it's eating.
 static void	philo_eat(t_philo *philo)
 {
-	// take forks
 	pthread_mutex_lock(&philo->data->fork[philo->l_fork]);
 	print_message("takes left fork", philo, philo->id);
 	pthread_mutex_lock(&philo->data->fork[philo->r_fork]);
 	print_message("takes right fork", philo, philo->id);
-	// eat for time_to_eat and print
 	print_message("is eating", philo, philo->id);
 	philo->last_meal_ms = get_time() - philo->data->start_timer;
 	philo->nb_of_meal++;
-	// unlock forks
 	ft_usleep(philo->data->time_to_eat);
 	pthread_mutex_unlock(&philo->data->fork[philo->r_fork]);
 	pthread_mutex_unlock(&philo->data->fork[philo->l_fork]);
@@ -34,7 +30,7 @@ static void	philo_eat(t_philo *philo)
 
 // This function prints the message for when a philo is sleeping and it sleeps
 // for the length of time we ask it to sleep.
-static void philo_sleep(t_philo *philo)
+static void	philo_sleep(t_philo *philo)
 {
 	print_message("is sleeping", philo, philo->id);
 	ft_usleep(philo->data->time_to_sleep);
@@ -55,28 +51,25 @@ void	*philos_routine(t_philo *philo)
 	philo->last_meal_ms = get_time() - philo->data->start_timer;
 	while (philo->data->dead == 0)
 	{
-		//if (max_eat)
 		if (philo->nb_of_meal == philo->data->max_eat)
 			break ;
-		//eat
 		philo_eat(philo);
-		//sleep
 		philo_sleep(philo);
-		//think
 		philo_think(philo);
 	}
 	return (NULL);
 }
 
 // create the philos threads
-void create_philos_t(t_data *data)
+void	create_philos_t(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < data->nb_philo)
 	{
-		pthread_create(&data->philo_tid[i], NULL, (void *)&philos_routine, &data->philo[i]);
+		pthread_create(&data->philo_tid[i], NULL, \
+			(void *)&philos_routine, &data->philo[i]);
 		i++;
 	}
- }
+}

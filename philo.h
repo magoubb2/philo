@@ -6,42 +6,42 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/27 12:23:12 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/01 15:03:59 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
-#define PHILO_H
-#include <unistd.h>
-#include <pthread.h>
-#include <stdio.h>
-#include <sys/time.h>
+# define PHILO_H
+# include <unistd.h>
+# include <pthread.h>
+# include <stdio.h>
+# include <sys/time.h>
 
 typedef struct s_philo
 {
 	int				id;
 	int				l_fork;
-    int				r_fork;
-    size_t			last_meal_ms;
-    int				nb_of_meal;
+	int				r_fork;
+	size_t			last_meal_ms;
+	int				nb_of_meal;
 	pthread_mutex_t	dead_lock;
-	struct	s_data *data;
-}   t_philo;
+	struct s_data	*data;
+}	t_philo;
 
 typedef struct s_data
 {
 	int				time_to_die;
 	int				time_to_eat;
-    int				time_to_sleep;
+	int				time_to_sleep;
 	int				nb_philo;
 	size_t			start_timer;
-	int				max_eat; //for 5em arg
+	int				max_eat;
 	int				dead;
-	t_philo			philo[200]; // philo data
-	pthread_t		philo_tid[200]; // philo threads
-	pthread_mutex_t	fork[200]; // forks (tableau de mutex) represent les fourchettes des philosophes
-	pthread_mutex_t	write_lock; // check for print
-}   t_data;
+	t_philo			philo[200];
+	pthread_t		philo_tid[200];
+	pthread_mutex_t	fork[200];
+	pthread_mutex_t	write_lock;
+}	t_data;
 
 // parsing
 

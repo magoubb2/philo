@@ -6,13 +6,13 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:10:03 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/27 17:34:36 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/01 14:52:07 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void check_monitor(t_philo *philo)
+void	check_monitor(t_philo *philo)
 {
 	int	i;
 

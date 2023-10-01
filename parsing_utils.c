@@ -6,24 +6,24 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:59:38 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/25 12:06:56 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/01 14:53:10 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int ft_isdigit(char *str)
+int	ft_isdigit(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-        if (str[i] < '0' || str[i] > '9')
-            return (0);
-        i++;
-    }
-    return (-1);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (-1);
 }
 
 static int	ft_space(char c)

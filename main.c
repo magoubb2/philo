@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/09/29 16:16:38 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/01 12:46:31 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	init_forks(&data);
-	// create threads (philos)
 	data.start_timer = get_time();
+	// create threads (philos)
 	create_philos_t(&data);
 	while (data.dead == 0)
 	{

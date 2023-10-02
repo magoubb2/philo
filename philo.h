@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/01 15:03:59 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:15:51 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_philo
 	int				r_fork;
 	size_t			last_meal_ms;
 	int				nb_of_meal;
-	pthread_mutex_t	dead_lock;
+	pthread_mutex_t	lock;
 	struct s_data	*data;
 }	t_philo;
 
@@ -41,7 +41,18 @@ typedef struct s_data
 	pthread_t		philo_tid[200];
 	pthread_mutex_t	fork[200];
 	pthread_mutex_t	write_lock;
+	pthread_mutex_t	dead_lock;
 }	t_data;
+
+typedef enum e_state
+{
+	EATING,
+	SLEEPING,
+	THINKING,
+	DEAD,
+	RIGHT_FORK,
+	LEFT_FORK,
+} t_state;
 
 // parsing
 
@@ -59,7 +70,8 @@ void	create_philos_t(t_data *data);
 // routine_utils
 
 size_t	get_time(void);
-void	print_message(char *s, t_philo *philo, int id);
+char	*get_message(t_state state);
+void	print_message(t_state state, t_philo *philo, int id);
 int		ft_usleep(size_t ms);
 int		is_dead(t_philo *philo);
 

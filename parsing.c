@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:53:38 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/01 14:55:05 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:19:37 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	init_philos(t_data *data)
 		data->philo[i].last_meal_ms = 0;
 		data->philo[i].nb_of_meal = 0;
 		data->philo[i].data = data;
-		pthread_mutex_init(&data->philo[i].dead_lock, NULL);
+		pthread_mutex_init(&data->philo[i].lock, NULL);
 		i++;
 	}
 }
@@ -61,6 +61,7 @@ int	parse_arg(char **argv, t_data *data)
 	data->time_to_sleep = ft_atoi(argv[4]);
 	data->dead = 0;
 	pthread_mutex_init(&data->write_lock, NULL);
+	pthread_mutex_init(&data->dead_lock, NULL);
 	if (data->nb_philo > 200 || data->nb_philo == 0)
 	{
 		printf("Number of philosopher error\n");

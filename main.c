@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/01 14:51:42 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:23:27 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ static void	init_forks(t_data *data)
 	while (i < data->nb_philo)
 	{
 		pthread_mutex_init(&data->fork[i], NULL);
+		i++;
+	}
+}
+
+static void	destroy_mutex(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	pthread_mutex_destroy(&data->write_lock);
+	pthread_mutex_destroy(&data->dead_lock);
+	while (i < data->nb_philo)
+	{
+		pthread_mutex_destroy(&data->philo[i].lock);
+		pthread_mutex_destroy(&data->fork[i]);
 		i++;
 	}
 }
@@ -59,5 +74,6 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < data.nb_philo)
 		pthread_join(data.philo_tid[i++], NULL);
+	destroy_mutex(&data);
 	return (0);
 }

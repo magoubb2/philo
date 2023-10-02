@@ -6,7 +6,7 @@
 #    By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/09 15:26:01 by mabaron-          #+#    #+#              #
-#    Updated: 2023/10/02 15:43:03 by mabaron-         ###   ########.fr        #
+#    Updated: 2023/10/02 15:51:50 by mabaron-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ OBJS =	${SRCS:.c=.o}
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -O2
 # CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
-# CFLAGS = -Wall -Wextra -Werror -g -O3
 
 RM = rm -rf
 

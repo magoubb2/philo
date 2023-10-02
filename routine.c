@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 15:17:04 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 14:47:27 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:47:06 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,12 @@ static void	philo_think(t_philo *philo)
 void	*philos_routine(t_philo *philo)
 {
 	int	dead;
-	
+
 	if (philo->id % 2 == 0)
 		usleep (100);
+	pthread_mutex_lock(&philo->lock);
 	philo->last_meal_ms = get_time() - philo->data->start_timer;
+	pthread_mutex_unlock(&philo->lock);
 	pthread_mutex_lock(&philo->data->dead_lock);
 	dead = philo->data->dead;
 	pthread_mutex_unlock(&philo->data->dead_lock);
@@ -62,7 +64,7 @@ void	*philos_routine(t_philo *philo)
 			break ;
 		philo_eat(philo);
 		philo_sleep(philo);
-		philo_think(philo);	
+		philo_think(philo);
 		pthread_mutex_lock(&philo->data->dead_lock);
 		dead = philo->data->dead;
 		pthread_mutex_unlock(&philo->data->dead_lock);

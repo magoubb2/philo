@@ -6,39 +6,37 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:10:03 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 15:19:45 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:43:40 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	check_monitor(t_philo *philo)
+void	check_monitor(t_philo *philos)
 {
-	int	i;
+	int		i;
+	t_philo	*ptr;
 
 	i = 0;
-	while (i < philo->data->nb_philo)
+	while (i < philos->data->nb_philo)
 	{
-		pthread_mutex_lock(&philo->lock);
-		if (is_dead(&philo[i]))
+		ptr = &philos[i++];
+		pthread_mutex_lock(&ptr->lock);
+		if (is_dead(ptr))
 		{
-			if (philo->nb_of_meal == philo->data->max_eat)
+			if (ptr->nb_of_meal == ptr->data->max_eat)
 			{
-				pthread_mutex_unlock(&philo->lock);
-				pthread_mutex_lock(&philo->data->dead_lock);
-				philo->data->dead = 1;
-				pthread_mutex_unlock(&philo->data->dead_lock);
-				break ;
+				pthread_mutex_unlock(&ptr->lock);
+				pthread_mutex_lock(&ptr->data->dead_lock);
+				ptr->data->dead = 1;
+				pthread_mutex_unlock(&ptr->data->dead_lock);
+				return ;
 			}
-			pthread_mutex_unlock(&philo->lock);
-			print_message(DEAD, philo, philo->id);
+			pthread_mutex_unlock(&ptr->lock);
+			print_message(DEAD, ptr, ptr->id);
 			return ;
 		}
-		else
-		{
-			pthread_mutex_unlock(&philo->lock);
-			return ;
-		}
-		i++; 
+		pthread_mutex_unlock(&ptr->lock);
+		i %= ptr->data->nb_philo;
 	}
 }

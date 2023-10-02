@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 15:09:25 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 15:15:51 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:44:17 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef enum e_state
 	DEAD,
 	RIGHT_FORK,
 	LEFT_FORK,
-} t_state;
+}	t_state;
 
 // parsing
 

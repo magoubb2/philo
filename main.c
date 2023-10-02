@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 15:23:27 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:24:40 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,7 @@ int	main(int argc, char **argv)
 	init_forks(&data);
 	data.start_timer = get_time();
 	create_philos_t(&data);
-	while (data.dead == 0)
-		check_monitor(data.philo);
+	check_monitor(data.philo);
 	i = 0;
 	while (i < data.nb_philo)
 		pthread_join(data.philo_tid[i++], NULL);

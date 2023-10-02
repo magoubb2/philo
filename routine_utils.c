@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 15:16:01 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:48:11 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	print_message(t_state state, t_philo *philo, int id)
 	{
 		printf("%zu Philo %i %s\n", time, id + 1, s);
 	}
-	//pthread_mutex_unlock(&philo->lock);
 	pthread_mutex_unlock(&philo->data->write_lock);
 }
 

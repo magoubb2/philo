@@ -6,12 +6,13 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:59:38 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/01 14:53:10 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 17:08:59 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+// Checks if digits.
 int	ft_isdigit(char *str)
 {
 	int	i;
@@ -26,6 +27,7 @@ int	ft_isdigit(char *str)
 	return (-1);
 }
 
+// Check for white_space.
 static int	ft_space(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
@@ -37,6 +39,7 @@ static int	ft_space(char c)
 	}
 }
 
+// atoi.
 int	ft_atoi(const char *str)
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 13:04:32 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 15:24:40 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:56:41 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 // This function is intended for initializing mutexes (representing forks) 
 // for a certain number of philosophers. It takes a pointer to an array of 
-//mutexes fork and the number of philosophers nb_philo as parameters.
+// mutexes fork and the number of philosophers nb_philo as parameters.
+// Init the forks mutexes depending of nb_philo.
 static void	init_forks(t_data *data)
 {
 	int	i;
@@ -27,6 +28,7 @@ static void	init_forks(t_data *data)
 	}
 }
 
+// Destroys all the mutex.
 static void	destroy_mutex(t_data *data)
 {
 	int	i;

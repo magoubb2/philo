@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 15:48:11 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:58:45 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ size_t	get_time(void)
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-// This function prints the messages we want to print and the current time -
-// start_timer.
+// This function prints the messages we want to print and
+// the current time - start_timer.
 void	print_message(t_state state, t_philo *philo, int id)
 {
 	size_t	time;
@@ -69,6 +69,8 @@ int	is_dead(t_philo *philo)
 	return (0);
 }
 
+// This function is used for the enum to print the message
+// in the print_message function.
 char	*get_message(t_state state)
 {
 	if (state == EATING)

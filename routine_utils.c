@@ -6,7 +6,7 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 17:07:23 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 17:28:09 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int	ft_usleep(size_t ms)
 	return (0);
 }
 
+// This function checks if the current time is bigger than
+// the time a philo must eat. If the condition is true then
+// we continue in monitot.c.
 int	is_dead(t_philo *philo)
 {
 	size_t	current_time;

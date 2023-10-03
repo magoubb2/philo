@@ -6,12 +6,13 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:10:03 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 16:57:03 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/02 17:29:35 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+// In this function we check if the condition in the "is_dead"
 void	check_monitor(t_philo *philos)
 {
 	int		i;

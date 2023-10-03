@@ -6,13 +6,16 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 14:10:03 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/02 17:29:35 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/03 13:30:19 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-// In this function we check if the condition in the "is_dead"
+// In this function we check if a philo is dead by checking
+// in philos we iterate trough the philos to check if one of
+// them is dead. Then if ptr->data->dead is = to '1', we print
+// DEAD message.
 void	check_monitor(t_philo *philos)
 {
 	int		i;

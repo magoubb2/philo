@@ -6,13 +6,14 @@
 /*   By: mabaron- <mabaron-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:38:15 by mabaron-          #+#    #+#             */
-/*   Updated: 2023/10/03 13:21:21 by mabaron-         ###   ########.fr       */
+/*   Updated: 2023/10/03 13:47:20 by mabaron-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-//This function gets the time in milliseconds.
+// This function gets the time in milliseconds.
+// (gettimeofday get the time since 1970)
 size_t	get_time(void)
 {
 	struct timeval	time;
